@@ -10,9 +10,10 @@ using System.Windows.Forms;
 
 namespace SomethingRandomSelector
 {
-    public partial class Form1 : Form
+    public partial class Form_Eating : Form
     {
-        public Form1()
+        //TODO: User can input the result that may appear, and generate random result.
+        public Form_Eating()
         {
             InitializeComponent();
         }
