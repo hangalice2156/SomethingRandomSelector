@@ -24,10 +24,5 @@ namespace SomethingRandomSelector
             //TODO: Open Form_Eating with this button.
 
         }
-
-        private void Button_Play_game_Click(object sender, EventArgs e)
-        {
-            //TODO: Open a Form_Slot_Game
-        }
     }
 }

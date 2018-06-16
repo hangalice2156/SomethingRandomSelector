@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace SomethingRandomSelector
 {
-    public partial class Form_Eating : Form
+    public partial class Form_generate : Form
     {
         //TODO: User can input the result that may appear, and generate random result.
         //Using data base to let user browse/create/modify/delete 
-        public Form_Eating()
+        public Form_generate()
         {
             InitializeComponent();
         }

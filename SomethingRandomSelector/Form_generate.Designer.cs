@@ -1,6 +1,6 @@
 ﻿namespace SomethingRandomSelector
 {
-    partial class Form_Eating
+    partial class Form_generate
     {
         /// <summary>
         /// Required designer variable.
