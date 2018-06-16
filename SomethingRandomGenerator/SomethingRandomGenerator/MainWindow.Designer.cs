@@ -1,6 +1,6 @@
 ﻿namespace SomethingRandomGenerator
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// 設計工具所需的變數。
