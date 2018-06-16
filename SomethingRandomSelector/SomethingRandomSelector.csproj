@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_Eating.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Eating.Designer.cs">
+      <DependentUpon>Form_Eating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Slot_Game.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Slot_Game.Designer.cs">
+      <DependentUpon>Form_Slot_Game.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +66,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_Eating.resx">
+      <DependentUpon>Form_Eating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Slot_Game.resx">
+      <DependentUpon>Form_Slot_Game.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
