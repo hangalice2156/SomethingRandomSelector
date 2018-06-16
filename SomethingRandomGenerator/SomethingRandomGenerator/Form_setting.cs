@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SomethingRandomSelector
+namespace SomethingRandomGenerator
 {
     public partial class Form_setting : Form
     {

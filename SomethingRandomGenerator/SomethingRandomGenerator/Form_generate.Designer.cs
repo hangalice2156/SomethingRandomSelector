@@ -1,6 +1,6 @@
-﻿namespace SomethingRandomSelector
+﻿namespace SomethingRandomGenerator
 {
-    partial class Form_Slot_Game
+    partial class Form_generate
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Form_Slot_Game
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 456);
-            this.Name = "Form_Slot_Game";
-            this.Text = "Form_Slot_Game";
-            this.ResumeLayout(false);
-
+            this.Text = "Form_generate";
         }
 
         #endregion

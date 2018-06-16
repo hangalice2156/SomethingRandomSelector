@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 組件的一般資訊是由下列的屬性集控制。
 // 變更這些屬性的值即可修改組件的相關
 // 資訊。
-[assembly: AssemblyTitle("SomethingRandomSelector")]
+[assembly: AssemblyTitle("SomethingRandomGenerator")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SomethingRandomSelector")]
+[assembly: AssemblyProduct("SomethingRandomGenerator")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 下列 GUID 為專案公開 (Expose) 至 COM 時所要使用的 typelib ID
-[assembly: Guid("8580a067-3384-4620-87c9-ae312169ced5")]
+[assembly: Guid("e4579387-3d6d-4e26-89e8-b0db95bf6262")]
 
 // 組件的版本資訊由下列四個值所組成: 
 //

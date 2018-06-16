@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SomethingRandomSelector
+namespace SomethingRandomGenerator
 {
-    public partial class Form_Slot_Game : Form
+    public partial class Form1 : Form
     {
-        public Form_Slot_Game()
+        public Form1()
         {
             InitializeComponent();
         }

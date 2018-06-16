@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SomethingRandomSelector
+namespace SomethingRandomGenerator
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace SomethingRandomSelector
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow());
+            Application.Run(new Form1());
         }
     }
 }
