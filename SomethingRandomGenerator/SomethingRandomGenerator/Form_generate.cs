@@ -12,9 +12,13 @@ namespace SomethingRandomGenerator
 {
     public partial class Form_generate : Form
     {
+        //TODO: Read data form database and repensent the UI
+
         public Form_generate()
         {
             InitializeComponent();
         }
+
+
     }
 }
