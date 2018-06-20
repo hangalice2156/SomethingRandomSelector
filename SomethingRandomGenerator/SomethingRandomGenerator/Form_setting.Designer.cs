@@ -47,7 +47,7 @@
             this.label_name_table = new System.Windows.Forms.Label();
             this.textBox_add_table_name = new System.Windows.Forms.TextBox();
             this.label_count_table = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_add_table_number = new System.Windows.Forms.TextBox();
             this.label_content1 = new System.Windows.Forms.Label();
             this.label_content2 = new System.Windows.Forms.Label();
             this.label_content3 = new System.Windows.Forms.Label();
@@ -56,6 +56,12 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button_modify = new System.Windows.Forms.Button();
             this.button_delete = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
@@ -159,6 +165,7 @@
             this.button_add_content.TabIndex = 7;
             this.button_add_content.Text = "添加項目";
             this.button_add_content.UseVisualStyleBackColor = false;
+            this.button_add_content.Click += new System.EventHandler(this.button_add_content_Click);
             // 
             // label_id
             // 
@@ -203,12 +210,13 @@
             this.label_count_table.TabIndex = 12;
             this.label_count_table.Text = "項目數量";
             // 
-            // textBox1
+            // textBox_add_table_number
             // 
-            this.textBox1.Location = new System.Drawing.Point(93, 106);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 25);
-            this.textBox1.TabIndex = 13;
+            this.textBox_add_table_number.Location = new System.Drawing.Point(93, 106);
+            this.textBox_add_table_number.Name = "textBox_add_table_number";
+            this.textBox_add_table_number.Size = new System.Drawing.Size(165, 25);
+            this.textBox_add_table_number.TabIndex = 13;
+            this.textBox_add_table_number.TextChanged += new System.EventHandler(this.textBox_add_table_number_TextChanged);
             // 
             // label_content1
             // 
@@ -267,6 +275,7 @@
             this.button_modify.TabIndex = 20;
             this.button_modify.Text = "修改項目";
             this.button_modify.UseVisualStyleBackColor = false;
+            this.button_modify.Click += new System.EventHandler(this.button_modify_Click);
             // 
             // button_delete
             // 
@@ -277,12 +286,70 @@
             this.button_delete.TabIndex = 21;
             this.button_delete.Text = "移除項目";
             this.button_delete.UseVisualStyleBackColor = false;
+            this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
+            // 
+            // textBox7
+            // 
+            this.textBox7.Enabled = false;
+            this.textBox7.Location = new System.Drawing.Point(372, 12);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(91, 25);
+            this.textBox7.TabIndex = 22;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Enabled = false;
+            this.textBox5.Location = new System.Drawing.Point(372, 59);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(91, 25);
+            this.textBox5.TabIndex = 23;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Enabled = false;
+            this.textBox6.Location = new System.Drawing.Point(372, 106);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(91, 25);
+            this.textBox6.TabIndex = 24;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(284, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 15);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "項目一名稱";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(284, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 15);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "項目二名稱";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(284, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 15);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "項目三名稱";
             // 
             // Form_setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 464);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.button_delete);
             this.Controls.Add(this.button_modify);
             this.Controls.Add(this.textBox4);
@@ -291,7 +358,7 @@
             this.Controls.Add(this.label_content3);
             this.Controls.Add(this.label_content2);
             this.Controls.Add(this.label_content1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_add_table_number);
             this.Controls.Add(this.label_count_table);
             this.Controls.Add(this.textBox_add_table_name);
             this.Controls.Add(this.label_name_table);
@@ -339,7 +406,7 @@
         private System.Windows.Forms.Label label_name_table;
         private System.Windows.Forms.TextBox textBox_add_table_name;
         private System.Windows.Forms.Label label_count_table;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_add_table_number;
         private System.Windows.Forms.Label label_content1;
         private System.Windows.Forms.Label label_content2;
         private System.Windows.Forms.Label label_content3;
@@ -348,5 +415,11 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button_modify;
         private System.Windows.Forms.Button button_delete;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
