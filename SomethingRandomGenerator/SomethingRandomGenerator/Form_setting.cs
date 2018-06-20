@@ -19,7 +19,7 @@ namespace SomethingRandomGenerator
         DataSet ds;
         SqlConnection db = new SqlConnection();
         int control_index; // for knowing which table user is looking.
-        int content_count;
+        int row_count;
 
         public Form_setting()
         {
@@ -36,10 +36,24 @@ namespace SomethingRandomGenerator
             ds = new DataSet();
             SqlDataAdapter daMain = new SqlDataAdapter("SELECT * FROM MainControl", cn);
             daMain.Fill(ds, "MainControl");
-            SqlDataAdapter daEat = new SqlDataAdapter("SELECT * FROM 東西吃啥", cn);
+
+            /*SqlDataAdapter daEat = new SqlDataAdapter("SELECT * FROM 東西吃啥", cn);
             daEat.Fill(ds, "東西吃啥");
             SqlDataAdapter daStudent = new SqlDataAdapter("SELECT * FROM 學生名單", cn);
-            daStudent.Fill(ds, "學生名單");
+            daStudent.Fill(ds, "學生名單");*/
+            row_count = 0; //reset
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                row_count++;
+            }
+            MessageBox.Show("" + row_count);
+            DataTableReader dtr = new DataTableReader(ds.Tables[0]);
+            for(int i = 0; i < row_count; ++i)
+            {
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM " + ds.Tables[0].Rows[i]["Name"] , cn);
+                da.Fill(ds, ""+ds.Tables[0].Rows[i]["Name"]);
+                MessageBox.Show("" + ds.Tables[0].Rows[i]["Name"]);
+            }
 
             dataGridView1.DataSource = ds;
             dataGridView2.DataSource = ds;
@@ -86,7 +100,9 @@ namespace SomethingRandomGenerator
                     ds.Tables[control_index].Columns[3] + ")" + 
                     "VALUES('" +
                     textBox_add_content.Text.Replace("'", "''") + "','" +
-                    textBox2.Text.Replace("'", "''") + "')";
+                    textBox2.Text.Replace("'", "''") + "','" +
+                    textBox3.Text.Replace("'", "''") + "','" +
+                    textBox4.Text.Replace("'", "''") + "')";
 
 
                 cmd.ExecuteNonQuery();
@@ -157,37 +173,83 @@ namespace SomethingRandomGenerator
 
         private void textBox_add_table_number_TextChanged(object sender, EventArgs e)
         {
-            switch(textBox_add_table_number.Text)
+            switch(textBox_table_number.Text)
             {
                 case "1":
                     {
-                        textBox7.Enabled = true;
-                        textBox5.Enabled = false;
-                        textBox6.Enabled = false;
+                        textBox_add_1.Enabled = true;
+                        textBox_add_2.Enabled = false;
+                        textBox_add_3.Enabled = false;
                         break;
                     }
                 case "2":
                     {
-                        textBox7.Enabled = true;
-                        textBox5.Enabled = true;
-                        textBox6.Enabled = false;
+                        textBox_add_1.Enabled = true;
+                        textBox_add_2.Enabled = true;
+                        textBox_add_3.Enabled = false;
                         break;
                     }
                 case "3":
                     {
-                        textBox7.Enabled = true;
-                        textBox5.Enabled = true;
-                        textBox6.Enabled = true;
+                        textBox_add_1.Enabled = true;
+                        textBox_add_2.Enabled = true;
+                        textBox_add_3.Enabled = true;
                         break;
                     }
                 default:
                     {
-                        textBox7.Enabled = false;
-                        textBox5.Enabled = false;
-                        textBox6.Enabled = false;
+                        textBox_add_1.Enabled = false;
+                        textBox_add_2.Enabled = false;
+                        textBox_add_3.Enabled = false;
                         label_count_table.Text = "請輸入1~3的數字";
                         break;
                     }
+            }
+        }
+
+        private void button_add_table_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection db = new SqlConnection();
+                db.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;" +
+                    "AttachDbFilename=|DataDirectory|Database1.mdf;" +
+                    "Integrated Security=True";
+                db.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = db;
+                
+                string column_1 = ((textBox_add_1.Text != "") ? textBox_add_1.Text : "項目一");
+                string column_2 = ((textBox_add_2.Text != "") ? textBox_add_2.Text : "項目二");
+                string column_3 = ((textBox_add_3.Text != "") ? textBox_add_3.Text : "項目三");
+
+                //MessageBox.Show(column_1 + "," + column_2 + "," + column_3);
+                cmd.CommandText = "CREATE TABLE " +
+                    textBox_table_name.Text + "(編號 VARCHAR (50) NOT NULL, " +
+                    column_1 + " VARCHAR (50) NULL, " +
+                    column_2 + " VARCHAR (50) NULL, " +
+                    column_3 + " VARCHAR (50) NULL, " +
+                    "PRIMARY KEY (編號) " +
+                    ")";
+
+                cmd.ExecuteNonQuery();
+
+                cmd.CommandText = "INSERT INTO " + ds.Tables[0] +
+                    "(" + ds.Tables[0].Columns[0] + "," +
+                    ds.Tables[0].Columns[1] + "," +
+                    ds.Tables[0].Columns[2] + ")" +
+                    "VALUES('" +
+                    textBox_table_id.Text.Replace("'", "''") + "','" +
+                    textBox_table_name.Text.Replace("'", "''") + "','" +
+                    textBox_table_number.Text.Replace("'", "''") + "')";
+
+                cmd.ExecuteNonQuery();
+                db.Close();
+                Form_setting_Load(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

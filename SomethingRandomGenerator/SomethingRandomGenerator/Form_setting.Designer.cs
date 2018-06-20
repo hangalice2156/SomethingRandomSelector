@@ -38,16 +38,16 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label_main = new System.Windows.Forms.Label();
             this.label_content = new System.Windows.Forms.Label();
-            this.textBox_add_table_id = new System.Windows.Forms.TextBox();
+            this.textBox_table_id = new System.Windows.Forms.TextBox();
             this.button_add_table = new System.Windows.Forms.Button();
             this.textBox_add_content = new System.Windows.Forms.TextBox();
             this.button_add_content = new System.Windows.Forms.Button();
             this.label_id = new System.Windows.Forms.Label();
             this.label_id_table = new System.Windows.Forms.Label();
             this.label_name_table = new System.Windows.Forms.Label();
-            this.textBox_add_table_name = new System.Windows.Forms.TextBox();
+            this.textBox_table_name = new System.Windows.Forms.TextBox();
             this.label_count_table = new System.Windows.Forms.Label();
-            this.textBox_add_table_number = new System.Windows.Forms.TextBox();
+            this.textBox_table_number = new System.Windows.Forms.TextBox();
             this.label_content1 = new System.Windows.Forms.Label();
             this.label_content2 = new System.Windows.Forms.Label();
             this.label_content3 = new System.Windows.Forms.Label();
@@ -56,9 +56,9 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button_modify = new System.Windows.Forms.Button();
             this.button_delete = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox_add_1 = new System.Windows.Forms.TextBox();
+            this.textBox_add_2 = new System.Windows.Forms.TextBox();
+            this.textBox_add_3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -132,12 +132,12 @@
             this.label_content.TabIndex = 3;
             this.label_content.Text = "表單內容";
             // 
-            // textBox_add_table_id
+            // textBox_table_id
             // 
-            this.textBox_add_table_id.Location = new System.Drawing.Point(93, 12);
-            this.textBox_add_table_id.Name = "textBox_add_table_id";
-            this.textBox_add_table_id.Size = new System.Drawing.Size(165, 25);
-            this.textBox_add_table_id.TabIndex = 4;
+            this.textBox_table_id.Location = new System.Drawing.Point(93, 12);
+            this.textBox_table_id.Name = "textBox_table_id";
+            this.textBox_table_id.Size = new System.Drawing.Size(165, 25);
+            this.textBox_table_id.TabIndex = 4;
             // 
             // button_add_table
             // 
@@ -148,6 +148,7 @@
             this.button_add_table.TabIndex = 5;
             this.button_add_table.Text = "新增表單";
             this.button_add_table.UseVisualStyleBackColor = false;
+            this.button_add_table.Click += new System.EventHandler(this.button_add_table_Click);
             // 
             // textBox_add_content
             // 
@@ -194,12 +195,12 @@
             this.label_name_table.TabIndex = 10;
             this.label_name_table.Text = "名稱";
             // 
-            // textBox_add_table_name
+            // textBox_table_name
             // 
-            this.textBox_add_table_name.Location = new System.Drawing.Point(93, 59);
-            this.textBox_add_table_name.Name = "textBox_add_table_name";
-            this.textBox_add_table_name.Size = new System.Drawing.Size(165, 25);
-            this.textBox_add_table_name.TabIndex = 11;
+            this.textBox_table_name.Location = new System.Drawing.Point(93, 59);
+            this.textBox_table_name.Name = "textBox_table_name";
+            this.textBox_table_name.Size = new System.Drawing.Size(165, 25);
+            this.textBox_table_name.TabIndex = 11;
             // 
             // label_count_table
             // 
@@ -210,13 +211,13 @@
             this.label_count_table.TabIndex = 12;
             this.label_count_table.Text = "項目數量";
             // 
-            // textBox_add_table_number
+            // textBox_table_number
             // 
-            this.textBox_add_table_number.Location = new System.Drawing.Point(93, 106);
-            this.textBox_add_table_number.Name = "textBox_add_table_number";
-            this.textBox_add_table_number.Size = new System.Drawing.Size(165, 25);
-            this.textBox_add_table_number.TabIndex = 13;
-            this.textBox_add_table_number.TextChanged += new System.EventHandler(this.textBox_add_table_number_TextChanged);
+            this.textBox_table_number.Location = new System.Drawing.Point(93, 106);
+            this.textBox_table_number.Name = "textBox_table_number";
+            this.textBox_table_number.Size = new System.Drawing.Size(165, 25);
+            this.textBox_table_number.TabIndex = 13;
+            this.textBox_table_number.TextChanged += new System.EventHandler(this.textBox_add_table_number_TextChanged);
             // 
             // label_content1
             // 
@@ -288,29 +289,29 @@
             this.button_delete.UseVisualStyleBackColor = false;
             this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
             // 
-            // textBox7
+            // textBox_add_1
             // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(372, 12);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(91, 25);
-            this.textBox7.TabIndex = 22;
+            this.textBox_add_1.Enabled = false;
+            this.textBox_add_1.Location = new System.Drawing.Point(372, 12);
+            this.textBox_add_1.Name = "textBox_add_1";
+            this.textBox_add_1.Size = new System.Drawing.Size(91, 25);
+            this.textBox_add_1.TabIndex = 22;
             // 
-            // textBox5
+            // textBox_add_2
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(372, 59);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(91, 25);
-            this.textBox5.TabIndex = 23;
+            this.textBox_add_2.Enabled = false;
+            this.textBox_add_2.Location = new System.Drawing.Point(372, 59);
+            this.textBox_add_2.Name = "textBox_add_2";
+            this.textBox_add_2.Size = new System.Drawing.Size(91, 25);
+            this.textBox_add_2.TabIndex = 23;
             // 
-            // textBox6
+            // textBox_add_3
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(372, 106);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(91, 25);
-            this.textBox6.TabIndex = 24;
+            this.textBox_add_3.Enabled = false;
+            this.textBox_add_3.Location = new System.Drawing.Point(372, 106);
+            this.textBox_add_3.Name = "textBox_add_3";
+            this.textBox_add_3.Size = new System.Drawing.Size(91, 25);
+            this.textBox_add_3.TabIndex = 24;
             // 
             // label1
             // 
@@ -347,9 +348,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBox_add_3);
+            this.Controls.Add(this.textBox_add_2);
+            this.Controls.Add(this.textBox_add_1);
             this.Controls.Add(this.button_delete);
             this.Controls.Add(this.button_modify);
             this.Controls.Add(this.textBox4);
@@ -358,16 +359,16 @@
             this.Controls.Add(this.label_content3);
             this.Controls.Add(this.label_content2);
             this.Controls.Add(this.label_content1);
-            this.Controls.Add(this.textBox_add_table_number);
+            this.Controls.Add(this.textBox_table_number);
             this.Controls.Add(this.label_count_table);
-            this.Controls.Add(this.textBox_add_table_name);
+            this.Controls.Add(this.textBox_table_name);
             this.Controls.Add(this.label_name_table);
             this.Controls.Add(this.label_id_table);
             this.Controls.Add(this.label_id);
             this.Controls.Add(this.button_add_content);
             this.Controls.Add(this.textBox_add_content);
             this.Controls.Add(this.button_add_table);
-            this.Controls.Add(this.textBox_add_table_id);
+            this.Controls.Add(this.textBox_table_id);
             this.Controls.Add(this.label_content);
             this.Controls.Add(this.label_main);
             this.Controls.Add(this.dataGridView2);
@@ -397,16 +398,16 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Label label_main;
         private System.Windows.Forms.Label label_content;
-        private System.Windows.Forms.TextBox textBox_add_table_id;
+        private System.Windows.Forms.TextBox textBox_table_id;
         private System.Windows.Forms.Button button_add_table;
         private System.Windows.Forms.TextBox textBox_add_content;
         private System.Windows.Forms.Button button_add_content;
         private System.Windows.Forms.Label label_id;
         private System.Windows.Forms.Label label_id_table;
         private System.Windows.Forms.Label label_name_table;
-        private System.Windows.Forms.TextBox textBox_add_table_name;
+        private System.Windows.Forms.TextBox textBox_table_name;
         private System.Windows.Forms.Label label_count_table;
-        private System.Windows.Forms.TextBox textBox_add_table_number;
+        private System.Windows.Forms.TextBox textBox_table_number;
         private System.Windows.Forms.Label label_content1;
         private System.Windows.Forms.Label label_content2;
         private System.Windows.Forms.Label label_content3;
@@ -415,9 +416,9 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button_modify;
         private System.Windows.Forms.Button button_delete;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox_add_1;
+        private System.Windows.Forms.TextBox textBox_add_2;
+        private System.Windows.Forms.TextBox textBox_add_3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
