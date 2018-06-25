@@ -86,6 +86,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_generate.resx">
+      <DependentUpon>Form_generate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_setting.resx">
       <DependentUpon>Form_setting.cs</DependentUpon>
     </EmbeddedResource>
