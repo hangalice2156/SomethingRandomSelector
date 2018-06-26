@@ -58,7 +58,7 @@ namespace SomethingRandomGenerator
             column_count = ds.Tables[control_index].Columns.Count;
             //foreach (DataRow row in ds.Tables[control_index].Rows) row_count++;
             //row_count = ds.Tables[control_index].Rows.Count;
-            times=rnd.Next(30);
+            times=10;
             timer1.Tick += change;
             //MessageBox.Show("" + + ds.Tables[control_index].Rows[rnd.Next(3)][1]+ ds.Tables[control_index].Rows[rnd.Next(3)][2]);
         }
@@ -66,15 +66,18 @@ namespace SomethingRandomGenerator
         int control_index, column_count,times;
         private void change(object sender,EventArgs e)
         {
-            if (times == 0) timer1.Tick -= change;
-            int rnd_out = rnd.Next(ds.Tables[control_index].Rows.Count);
-            string output = "";
-            for (int i = 1; i < column_count; ++i)
+            if (times <= 0) timer1.Tick -= change;
+            else
             {
-                output += ds.Tables[control_index].Rows[rnd_out][i] + " ";
+                int rnd_out = rnd.Next(ds.Tables[control_index].Rows.Count);
+                string output = "";
+                for (int i = 1; i < column_count; ++i)
+                {
+                    output += ds.Tables[control_index].Rows[rnd_out][i] + " ";
+                }
+                label1.Text = output;
+                times--;
             }
-            label1.Text = output;
-            times--;
         }
     }
 }
