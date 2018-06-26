@@ -36,23 +36,16 @@ namespace SomethingRandomGenerator
             ds = new DataSet();
             SqlDataAdapter daMain = new SqlDataAdapter("SELECT * FROM MainControl", cn);
             daMain.Fill(ds, "MainControl");
-
-            /*SqlDataAdapter daEat = new SqlDataAdapter("SELECT * FROM 東西吃啥", cn);
-            daEat.Fill(ds, "東西吃啥");
-            SqlDataAdapter daStudent = new SqlDataAdapter("SELECT * FROM 學生名單", cn);
-            daStudent.Fill(ds, "學生名單");*/
+            
             row_count = 0; //reset
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 row_count++;
             }
-            MessageBox.Show("" + row_count);
-            DataTableReader dtr = new DataTableReader(ds.Tables[0]);
             for(int i = 0; i < row_count; ++i)
             {
                 SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM " + ds.Tables[0].Rows[i]["Name"] , cn);
                 da.Fill(ds, ""+ds.Tables[0].Rows[i]["Name"]);
-                MessageBox.Show("" + ds.Tables[0].Rows[i]["Name"]);
             }
 
             dataGridView1.DataSource = ds;
