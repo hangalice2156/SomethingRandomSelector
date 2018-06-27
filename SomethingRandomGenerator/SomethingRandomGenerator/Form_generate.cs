@@ -22,6 +22,7 @@ namespace SomethingRandomGenerator
         DataSet ds;
         SqlConnection db = new SqlConnection();
         System.Media.SoundPlayer player = new System.Media.SoundPlayer("./music.wav");
+        bool[] record;
         private void Form_generate_Load(object sender, EventArgs e)
         {
             // TODO: 這行程式碼會將資料載入 'database1DataSet.MainControl' 資料表。您可以視需要進行移動或移除。
@@ -50,14 +51,20 @@ namespace SomethingRandomGenerator
 
             dataGridView1.DataSource = ds;
             dataGridView1.DataMember = "MainControl";
+
+            control_index = 1;
+            column_count = ds.Tables[control_index].Columns.Count;
+            record = new bool[ds.Tables[control_index].Rows.Count];
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             control_index = e.RowIndex + 1;
+            column_count = ds.Tables[control_index].Columns.Count;
+            record = new bool[ds.Tables[control_index].Rows.Count];
             //MessageBox.Show("" + + ds.Tables[control_index].Rows[rnd.Next(3)][1]+ ds.Tables[control_index].Rows[rnd.Next(3)][2]);
         }
         Random rnd = new Random(Guid.NewGuid().GetHashCode());
-        int control_index=1,times;
+        int control_index,times, column_count;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -70,6 +77,10 @@ namespace SomethingRandomGenerator
                 for (int i = 0; i < numericUpDown1.Value; i++)
                 {
                     sw.WriteLine(random_result());
+                }
+                for (int i = 0; i < record.Count(); i++)
+                {
+                    record[i] = false;
                 }
                 sw.Close();
             }
@@ -93,7 +104,21 @@ namespace SomethingRandomGenerator
         }
 
         private string random_result() {
-            int rnd_out = rnd.Next(ds.Tables[control_index].Rows.Count),column_count = ds.Tables[control_index].Columns.Count;
+            int rnd_out=0,row_count= ds.Tables[control_index].Rows.Count;
+            for(int i=0;i< row_count; ++i)
+            {
+                if (!record[i])
+                {
+                    rnd_out = 1;
+                    break;
+                }
+            }
+            if (rnd_out == 0) return "Empty";
+            do
+            {
+                rnd_out = rnd.Next(ds.Tables[control_index].Rows.Count);
+            } while (record[rnd_out]);
+            if(!checkBox1.Checked) record[rnd_out] = true;
             string output = "";
             for (int i = 1; i < column_count; ++i)
             {
