@@ -76,7 +76,7 @@ namespace SomethingRandomGenerator
                 System.IO.StreamWriter sw = new System.IO.StreamWriter(sfd.OpenFile());
                 for (int i = 0; i < numericUpDown1.Value; i++)
                 {
-                    sw.WriteLine(random_result());
+                    sw.WriteLine(random_result(!checkBox1.Checked));
                 }
                 for (int i = 0; i < record.Count(); i++)
                 {
@@ -91,7 +91,7 @@ namespace SomethingRandomGenerator
             if (times <= 0) timer1.Tick -= change;
             else
             {
-                label1.Text = random_result();
+                label1.Text = random_result(false);
                 times--;
             }
         }
@@ -103,7 +103,7 @@ namespace SomethingRandomGenerator
             player.Play();
         }
 
-        private string random_result() {
+        private string random_result(bool need_record) {
             int rnd_out=0,row_count= ds.Tables[control_index].Rows.Count;
             for(int i=0;i< row_count; ++i)
             {
@@ -118,7 +118,7 @@ namespace SomethingRandomGenerator
             {
                 rnd_out = rnd.Next(ds.Tables[control_index].Rows.Count);
             } while (record[rnd_out]);
-            if(!checkBox1.Checked) record[rnd_out] = true;
+            if(need_record) record[rnd_out] = true;
             string output = "";
             for (int i = 1; i < column_count; ++i)
             {
