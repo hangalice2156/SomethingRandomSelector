@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using System.Data.SqlClient;
 
 namespace SomethingRandomGenerator
@@ -22,7 +21,7 @@ namespace SomethingRandomGenerator
         }
         DataSet ds;
         SqlConnection db = new SqlConnection();
-
+        System.Media.SoundPlayer player = new System.Media.SoundPlayer("./music.wav");
         private void Form_generate_Load(object sender, EventArgs e)
         {
             // TODO: 這行程式碼會將資料載入 'database1DataSet.MainControl' 資料表。您可以視需要進行移動或移除。
@@ -55,29 +54,52 @@ namespace SomethingRandomGenerator
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             control_index = e.RowIndex + 1;
-            column_count = ds.Tables[control_index].Columns.Count;
-            //foreach (DataRow row in ds.Tables[control_index].Rows) row_count++;
-            //row_count = ds.Tables[control_index].Rows.Count;
-            times=10;
-            timer1.Tick += change;
             //MessageBox.Show("" + + ds.Tables[control_index].Rows[rnd.Next(3)][1]+ ds.Tables[control_index].Rows[rnd.Next(3)][2]);
         }
         Random rnd = new Random(Guid.NewGuid().GetHashCode());
-        int control_index, column_count,times;
+        int control_index=1,times;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Text File|*.txt";
+            sfd.ShowDialog();
+            if (sfd.FileName != "")
+            {
+                System.IO.StreamWriter sw = new System.IO.StreamWriter(sfd.OpenFile());
+                for (int i = 0; i < numericUpDown1.Value; i++)
+                {
+                    sw.WriteLine(random_result());
+                }
+                sw.Close();
+            }
+        }
+
         private void change(object sender,EventArgs e)
         {
             if (times <= 0) timer1.Tick -= change;
             else
             {
-                int rnd_out = rnd.Next(ds.Tables[control_index].Rows.Count);
-                string output = "";
-                for (int i = 1; i < column_count; ++i)
-                {
-                    output += ds.Tables[control_index].Rows[rnd_out][i] + " ";
-                }
-                label1.Text = output;
+                label1.Text = random_result();
                 times--;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            times = 50;
+            timer1.Tick += change;
+            player.Play();
+        }
+
+        private string random_result() {
+            int rnd_out = rnd.Next(ds.Tables[control_index].Rows.Count),column_count = ds.Tables[control_index].Columns.Count;
+            string output = "";
+            for (int i = 1; i < column_count; ++i)
+            {
+                output += ds.Tables[control_index].Rows[rnd_out][i] + " ";
+            }
+            return output;
         }
     }
 }
