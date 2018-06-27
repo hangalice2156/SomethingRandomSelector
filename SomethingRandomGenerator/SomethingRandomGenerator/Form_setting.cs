@@ -126,8 +126,6 @@ namespace SomethingRandomGenerator
                     ds.Tables[control_index].Columns[3] + "='" + textBox4.Text.Replace("'", "''") + "'" +
                     " WHERE " + ds.Tables[control_index].Columns[0] + "='" + textBox_add_content.Text.Replace("'", "''") + "'";
                     
-                /*cmd.CommandText = "UPDATE 學生名單 SET 姓名='" + textBox2.Text.Replace("'", "''") + "'" +
-                    " WHERE 學號='" + textBox_add_content.Text.Replace("'", "''") + "'";*/
 
                 cmd.ExecuteNonQuery();
                 db.Close();
